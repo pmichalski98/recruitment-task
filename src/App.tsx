@@ -34,7 +34,9 @@ function App() {
   }
   return (
     <main className="min-h-screen flex flex-col justify-center items-center">
-      <h1 className="text-4xl font-medium mb-10">Kalkulator euro na złoty</h1>
+      <h1 className="text-4xl md:text-5xl  font-medium mb-20">
+        Kalkulator euro na złoty
+      </h1>
       <section className="bg-gray-100">
         <form
           onSubmit={handleFormSubmit}
