@@ -9,15 +9,13 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   const apiUrl = "https://api.nbp.pl/api/exchangerates/rates/a";
-  const imgUrl = "http://purecatamphetamine.github.io/country-flag-icons/3x2";
+  const imgUrl = "https://purecatamphetamine.github.io/country-flag-icons/3x2";
   async function handleFormSubmit(e: FormEvent) {
     e.preventDefault();
     setIsLoading(true);
     let avgCourse: number;
     try {
-      const res = await axios.get(`${apiUrl}/eur`, {
-        insecureHTTPParser: true,
-      });
+      const res = await axios.get(`${apiUrl}/eur`);
       avgCourse = res.data.rates[0].mid;
       setAverageCourse(avgCourse);
     } catch (e) {
