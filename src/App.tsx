@@ -15,7 +15,9 @@ function App() {
     setIsLoading(true);
     let avgCourse: number;
     try {
-      const res = await axios.get(`${apiUrl}/eur`);
+      const res = await axios.get(`${apiUrl}/eur`, {
+        insecureHTTPParser: true,
+      });
       avgCourse = res.data.rates[0].mid;
       setAverageCourse(avgCourse);
     } catch (e) {
