@@ -8,7 +8,7 @@ function App() {
   const [averageCourse, setAverageCourse] = useState<null | number>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const apiUrl = "http://api.nbp.pl/api/exchangerates/rates/a";
+  const apiUrl = "https://api.nbp.pl/api/exchangerates/rates/a";
   const imgUrl = "http://purecatamphetamine.github.io/country-flag-icons/3x2";
   async function handleFormSubmit(e: FormEvent) {
     e.preventDefault();
