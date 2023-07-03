@@ -6,6 +6,7 @@ import FormItem from "./components/FormItem.tsx";
 import FormGroup from "./components/FormGroup.tsx";
 import InputWrapper from "./components/InputWrapper.tsx";
 import Button from "./components/Button.tsx";
+import Input from "./components/Input.tsx";
 
 function App() {
   const [usersInput, setUsersInput] = useState(0);
@@ -32,7 +33,8 @@ function App() {
     setIsLoading(false);
   }
   return (
-    <main className="min-h-screen flex justify-center items-center">
+    <main className="min-h-screen flex flex-col justify-center items-center">
+      <h1 className="text-4xl font-medium mb-10">Kalkulator euro na złoty</h1>
       <section className="bg-gray-100">
         <form
           onSubmit={handleFormSubmit}
@@ -41,8 +43,7 @@ function App() {
           <FormGroup>
             <FormItem imgUrl={`${IMG_URL}/EU.svg`} currency={"EUR"} />
             <InputWrapper>
-              {/* Jakby było więcej inputów to bym również osobny komponent */}
-              <input
+              <Input
                 onChange={(e) => setUsersInput(Number(e.target.value))}
                 value={usersInput.toFixed(2)}
                 className="h-full focus:outline-blue-400 pr-4 text-end font-medium text-lg"
@@ -53,9 +54,8 @@ function App() {
           <FormGroup>
             <FormItem imgUrl={`${IMG_URL}/PL.svg`} currency={"PLN"} />
             <InputWrapper>
-              <input
+              <Input
                 readOnly
-                className="h-full focus:outline-blue-400 pr-4 text-end font-medium text-lg"
                 value={averageCourse ? valueAfterSwap() : "0.00"}
                 type={"number"}
               />
@@ -72,7 +72,6 @@ function App() {
               </p>
             </div>
           )}
-          {/* Jakby było więcej przycisków to bym stworzył osobny komponent */}
           <Button disabled={isLoading}>
             {isLoading ? <ClipLoader color={"white"} /> : "Sprawdź kurs"}
           </Button>
