@@ -5,6 +5,7 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import FormItem from "./components/FormItem.tsx";
 import FormGroup from "./components/FormGroup.tsx";
 import InputWrapper from "./components/InputWrapper.tsx";
+import Button from "./components/Button.tsx";
 
 function App() {
   const [usersInput, setUsersInput] = useState(0);
@@ -40,7 +41,7 @@ function App() {
           <FormGroup>
             <FormItem imgUrl={`${IMG_URL}/EU.svg`} currency={"EUR"} />
             <InputWrapper>
-              {/* Jakby było więcej inputów to bym również stworzył osobny komponent */}
+              {/* Jakby było więcej inputów to bym również osobny komponent */}
               <input
                 onChange={(e) => setUsersInput(Number(e.target.value))}
                 value={usersInput.toFixed(2)}
@@ -71,12 +72,10 @@ function App() {
               </p>
             </div>
           )}
-          <button
-            disabled={isLoading}
-            className="self-end min-w-[137px] mt-6 hover:opacity-80 transition bg-blue-700 text-white rounded px-6 py-2 text-lg "
-          >
+          {/* Jakby było więcej przycisków to bym stworzył osobny komponent */}
+          <Button disabled={isLoading}>
             {isLoading ? <ClipLoader color={"white"} /> : "Sprawdź kurs"}
-          </button>
+          </Button>
         </form>
         {averageCourse && (
           <p className="pl-10 pb-10 text-sm">
